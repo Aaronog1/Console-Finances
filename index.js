@@ -120,3 +120,10 @@ for (let i = 0; i < finances.length; i++) {
   }
 }
 
+let sumOfChanges = changes.reduce((acc, val) => acc + val, 0);
+let averageChange = sumOfChanges / (totalMonths - 1);
+
+console.log("Financial Analysis");
+console.log("------------------");
+console.log("Total Months:", totalMonths);
+console.log("Total:", totalProfitLoss);
