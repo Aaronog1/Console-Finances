@@ -92,23 +92,24 @@ var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
 ];
-
+// Initialize variables to store financial analysis
 let totalMonths = finances.length;
 let totalProfitLoss = 0;
 let changes = [];
 let maxIncrease = { amount: 0 };
 let maxDecrease = { amount: 0 };
 
-
+// Loop through the finances array to perform calculations
 for (let i = 0; i < finances.length; i++) {
   let monthProfit = finances[i][1];
   totalProfitLoss += monthProfit;
 
+// For changes in profit/losses
   if (i > 0) {
     let change = monthProfit - finances[i - 1][1];
     changes.push(change);
 
-  
+      // Find the greatest increase and decrease
     if (change > maxIncrease.amount) {
       maxIncrease.amount = change;
       maxIncrease.date = finances[i][0];
@@ -119,7 +120,7 @@ for (let i = 0; i < finances.length; i++) {
     }
   }
 }
-
+//calculate average range
 let sumOfChanges = changes.reduce((acc, val) => acc + val, 0);
 let averageChange = sumOfChanges / (totalMonths - 1);
 
